@@ -6,16 +6,32 @@
 //
 
 import SwiftUI
+import SwiftPersistence
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            // I will add the introduction pages here so that ppl will know how to use the app
         }
-        .padding()
+        .tabViewStyle(.page)
+        
+        // This Tabview is for toggling between the notes page and the documentation
+        TabView {
+            NotesMain()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.bullet.clipboard")
+                        Text("Notes")
+                    }
+                }
+            DocumentationMain()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "newspaper")
+                        Text("Documentation")
+                    }
+                }
+        }
     }
 }
 

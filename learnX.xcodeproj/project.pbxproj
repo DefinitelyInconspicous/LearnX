@@ -11,6 +11,10 @@
 		813AB9EC2AB9C14300BCDF39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813AB9EB2AB9C14300BCDF39 /* ContentView.swift */; };
 		813AB9EE2AB9C14400BCDF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813AB9ED2AB9C14400BCDF39 /* Assets.xcassets */; };
 		813AB9F12AB9C14400BCDF39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813AB9F02AB9C14400BCDF39 /* Preview Assets.xcassets */; };
+		813AB9F82AB9C1D900BCDF39 /* Intro1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813AB9F72AB9C1D900BCDF39 /* Intro1.swift */; };
+		813AB9FD2AB9C38000BCDF39 /* SwiftPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 813AB9FC2AB9C38000BCDF39 /* SwiftPersistence */; };
+		813ABA012AB9C49000BCDF39 /* DocumentationMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */; };
+		813ABA042AB9C54B00BCDF39 /* NotesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA032AB9C54B00BCDF39 /* NotesMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,9 @@
 		813AB9EB2AB9C14300BCDF39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		813AB9ED2AB9C14400BCDF39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		813AB9F02AB9C14400BCDF39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		813AB9F72AB9C1D900BCDF39 /* Intro1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro1.swift; sourceTree = "<group>"; };
+		813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationMain.swift; sourceTree = "<group>"; };
+		813ABA032AB9C54B00BCDF39 /* NotesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813AB9FD2AB9C38000BCDF39 /* SwiftPersistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +59,9 @@
 		813AB9E82AB9C14300BCDF39 /* learnX */ = {
 			isa = PBXGroup;
 			children = (
+				813ABA022AB9C52C00BCDF39 /* Notes */,
+				813AB9FF2AB9C47D00BCDF39 /* Documentation */,
+				813AB9FE2AB9C3AE00BCDF39 /* Intro */,
 				813AB9E92AB9C14300BCDF39 /* learnXApp.swift */,
 				813AB9EB2AB9C14300BCDF39 /* ContentView.swift */,
 				813AB9ED2AB9C14400BCDF39 /* Assets.xcassets */,
@@ -65,6 +76,30 @@
 				813AB9F02AB9C14400BCDF39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		813AB9FE2AB9C3AE00BCDF39 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				813AB9F72AB9C1D900BCDF39 /* Intro1.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		813AB9FF2AB9C47D00BCDF39 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		813ABA022AB9C52C00BCDF39 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				813ABA032AB9C54B00BCDF39 /* NotesMain.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +118,9 @@
 			dependencies = (
 			);
 			name = learnX;
+			packageProductDependencies = (
+				813AB9FC2AB9C38000BCDF39 /* SwiftPersistence */,
+			);
 			productName = learnX;
 			productReference = 813AB9E62AB9C14300BCDF39 /* learnX.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 813AB9DD2AB9C14300BCDF39;
+			packageReferences = (
+				813AB9FB2AB9C38000BCDF39 /* XCRemoteSwiftPackageReference "SwiftPersistence" */,
+			);
 			productRefGroup = 813AB9E72AB9C14300BCDF39 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813ABA012AB9C49000BCDF39 /* DocumentationMain.swift in Sources */,
+				813ABA042AB9C54B00BCDF39 /* NotesMain.swift in Sources */,
 				813AB9EC2AB9C14300BCDF39 /* ContentView.swift in Sources */,
+				813AB9F82AB9C1D900BCDF39 /* Intro1.swift in Sources */,
 				813AB9EA2AB9C14300BCDF39 /* learnXApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +381,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		813AB9FB2AB9C38000BCDF39 /* XCRemoteSwiftPackageReference "SwiftPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cheesetan/SwiftPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		813AB9FC2AB9C38000BCDF39 /* SwiftPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 813AB9FB2AB9C38000BCDF39 /* XCRemoteSwiftPackageReference "SwiftPersistence" */;
+			productName = SwiftPersistence;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 813AB9DE2AB9C14300BCDF39 /* Project object */;
 }
