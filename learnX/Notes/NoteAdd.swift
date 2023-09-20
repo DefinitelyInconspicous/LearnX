@@ -13,6 +13,11 @@ struct NoteAdd: View {
     @Binding var date: Date
     @Binding var sheet: Bool
     var body: some View {
+        Text("Note Creator")
+            .font(.largeTitle)
+            .fontWeight(.heavy)
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding()
         
         TextField(name, text: $name)
             .font(.largeTitle)
@@ -31,6 +36,10 @@ struct NoteAdd: View {
             } label: {
                 Text("Confirm Creation")
             }
+            .buttonBorderShape(.roundedRectangle(radius: 10))
+            .buttonStyle(.bordered)
+            .tint(.mint)
+            
             Spacer()
         
     }
@@ -39,6 +48,6 @@ struct NoteAdd: View {
 
 struct NoteAdd_Previews: PreviewProvider {
     static var previews: some View {
-        NoteAdd(name: .constant(""), what: .constant(""), date: .constant(Date()), sheet: .constant(false))
+        NoteAdd(name: .constant("New Note"), what: .constant("This is a new note"), date: .constant(Date()), sheet: .constant(false))
     }
 }
