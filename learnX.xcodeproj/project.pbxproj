@@ -15,6 +15,8 @@
 		813AB9FD2AB9C38000BCDF39 /* SwiftPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 813AB9FC2AB9C38000BCDF39 /* SwiftPersistence */; };
 		813ABA012AB9C49000BCDF39 /* DocumentationMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */; };
 		813ABA042AB9C54B00BCDF39 /* NotesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA032AB9C54B00BCDF39 /* NotesMain.swift */; };
+		813ABA062ABA888400BCDF39 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA052ABA888400BCDF39 /* NoteView.swift */; };
+		813ABA082ABA8C9C00BCDF39 /* NoteAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA072ABA8C9C00BCDF39 /* NoteAdd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		813AB9F72AB9C1D900BCDF39 /* Intro1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro1.swift; sourceTree = "<group>"; };
 		813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationMain.swift; sourceTree = "<group>"; };
 		813ABA032AB9C54B00BCDF39 /* NotesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesMain.swift; sourceTree = "<group>"; };
+		813ABA052ABA888400BCDF39 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		813ABA072ABA8C9C00BCDF39 /* NoteAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAdd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				813ABA032AB9C54B00BCDF39 /* NotesMain.swift */,
+				813ABA052ABA888400BCDF39 /* NoteView.swift */,
+				813ABA072ABA8C9C00BCDF39 /* NoteAdd.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -180,9 +186,11 @@
 			files = (
 				813ABA012AB9C49000BCDF39 /* DocumentationMain.swift in Sources */,
 				813ABA042AB9C54B00BCDF39 /* NotesMain.swift in Sources */,
+				813ABA062ABA888400BCDF39 /* NoteView.swift in Sources */,
 				813AB9EC2AB9C14300BCDF39 /* ContentView.swift in Sources */,
 				813AB9F82AB9C1D900BCDF39 /* Intro1.swift in Sources */,
 				813AB9EA2AB9C14300BCDF39 /* learnXApp.swift in Sources */,
+				813ABA082ABA8C9C00BCDF39 /* NoteAdd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
