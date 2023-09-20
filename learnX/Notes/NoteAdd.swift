@@ -13,24 +13,27 @@ struct NoteAdd: View {
     @Binding var date: Date
     @Binding var sheet: Bool
     var body: some View {
+        // Creating title text
         Text("Note Creator")
             .font(.largeTitle)
             .fontWeight(.heavy)
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
         
+        // Text field for the title editing
         TextField(name, text: $name)
             .font(.largeTitle)
             .fontWeight(.medium)
             .padding()
             
-        
+        // Text of when the note was created
                     HStack {
                 Text("Date Created: \(date.description)")
                     .font(.callout)
             }
-                
+                // The main note text Editor
             TextEditor(text: $what)
+        // The confirm button
             Button {
                 sheet = false
             } label: {

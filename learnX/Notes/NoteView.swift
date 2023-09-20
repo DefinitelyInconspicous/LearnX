@@ -14,12 +14,18 @@ struct NoteView: View {
   
     
     var body: some View {
-        
+        // Heading
+        Text("Note Editor")
+            .font(.largeTitle)
+            .fontWeight(.heavy)
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding()
+        // Note Title
         TextField(name, text: $name)
             .font(.largeTitle)
             .fontWeight(.medium)
             .padding(.leading)
-         
+         // When the note was made
              HStack {
                  Text("Date Created: \(date.description)")
                      .font(.callout)
@@ -28,7 +34,7 @@ struct NoteView: View {
                  
                  
              
-            
+            // The main note editor
              TextEditor(text: $what)
                 
              Spacer()

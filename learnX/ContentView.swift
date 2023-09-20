@@ -20,6 +20,7 @@ struct ContentView: View {
         
         // This Tabview is for toggling between the notes page and the documentation(and the settings)
         TabView {
+            // The notes tab
             NotesMain()
                 .tabItem {
                     VStack {
@@ -27,6 +28,7 @@ struct ContentView: View {
                         Text("Notes")
                     }
                 }
+            // The documentation tab
             DocumentationMain()
                 .tabItem {
                     VStack {
