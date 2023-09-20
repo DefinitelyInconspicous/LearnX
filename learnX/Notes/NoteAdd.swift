@@ -14,23 +14,18 @@ struct NoteAdd: View {
     var body: some View {
        
         NavigationStack{
+            HStack {
+                Text("Date Created: \(date.description)")
+                    .font(.callout)
+            }
             
-            List{
                 TextField(name, text: $name)
                     .font(.largeTitle)
-                
+                    .padding()
             
-                HStack {
-                    Text("Date Created: \(date.description)")
-                        .font(.caption)
-                }
-                HStack {
-                    Text("The Note :")
-                        .font(.title3)
-                    TextField(what, text: $what)
-                }
                 
-            }
+            TextEditor(text: $what)
+            Spacer()
             
             
             .navigationTitle("Note Creator")

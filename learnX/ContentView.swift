@@ -15,7 +15,7 @@ struct ContentView: View {
         }
         .tabViewStyle(.page)
         
-        // This Tabview is for toggling between the notes page and the documentation
+        // This Tabview is for toggling between the notes page and the documentation(and the settings)
         TabView {
             NotesMain()
                 .tabItem {

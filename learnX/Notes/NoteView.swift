@@ -14,30 +14,27 @@ struct NoteView: View {
   
     
     var body: some View {
-        NavigationStack{
-            
-            List{
-                TextField(name, text: $name)
-                    .font(.largeTitle)
-                
-            
-                HStack {
-                    Text("Date Created: \(date.description)")
-                        .font(.caption)
-                }
-                HStack {
-                    Text("The Note :")
-                        .font(.title3)
-                    TextField(what, text: $what)
-                }
-                
-            }
-            
-            
-            .navigationTitle("Note Editor")
-            .navigationBarTitleDisplayMode(.large)
-        }
         
+         NavigationStack{
+             HStack {
+                 Text("Date Created: \(date.description)")
+                     .font(.callout)
+             }
+             
+                 TextField(name, text: $name)
+                     .font(.largeTitle)
+                     .padding()
+                 
+             
+                
+             TextEditor(text: $what)
+             Spacer()
+             
+             
+             .navigationTitle("Note Creator")
+             .navigationBarTitleDisplayMode(.large)
+         }
+         
     }
 }
 

@@ -17,7 +17,7 @@ struct note: Identifiable, Codable {
 
 }
 struct NotesMain: View {
-    
+    @State var Sheet: Bool = false
     // Creating the placeholder of note(A default)
     let placeholder = note(noteTitle: "New Note", noteContent: " Content", noteCreated: Date())
     
@@ -33,7 +33,7 @@ struct NotesMain: View {
                         NavigationLink {
                             NoteView(name: note.noteTitle, what: note.noteContent , date: note.noteCreated)
                         } label: {
-                            VStack {
+                            VStack(alignment: .leading) {
                                 Text(note.noteTitle.wrappedValue)
                                     .font(.title)
                                 Text(note.noteCreated.wrappedValue.description)
@@ -50,6 +50,7 @@ struct NotesMain: View {
                 .toolbar {
                     Button {
                         noteList.append(note(noteTitle: "New Note", noteContent: "", noteCreated: Date()))
+                        Sheet = true
                     } label: {
                         Image(systemName: "doc.badge.plus")
                             .tint(.accentColor)
@@ -59,6 +60,14 @@ struct NotesMain: View {
             
             
         }
+        .sheet(isPresented: $Sheet) {
+            NoteAdd(
+                name: $noteList[noteList.count-1].noteTitle ,
+                what: $noteList[noteList.count-1 ].noteContent,
+                date: $noteList[noteList.count-1 ].noteCreated,
+                
+                }
+
         }
     }
     struct NotesMain_Previews: PreviewProvider {
