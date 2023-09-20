@@ -15,26 +15,24 @@ struct NoteView: View {
     
     var body: some View {
         
-         NavigationStack{
+        TextField(name, text: $name)
+            .font(.largeTitle)
+            .fontWeight(.medium)
+            .padding(.leading)
+         
              HStack {
                  Text("Date Created: \(date.description)")
                      .font(.callout)
              }
              
-                 TextField(name, text: $name)
-                     .font(.largeTitle)
-                     .padding()
+                 
                  
              
-                
+            
              TextEditor(text: $what)
+                
              Spacer()
-             
-             
-             .navigationTitle("Note Creator")
-             .navigationBarTitleDisplayMode(.large)
-         }
-         
+        
     }
 }
 

@@ -21,8 +21,12 @@ struct NotesMain: View {
     // Creating the placeholder of note(A default)
     let placeholder = note(noteTitle: "New Note", noteContent: " Content", noteCreated: Date())
     
-    // Creating the notelist list
-     @State var noteList: [note] = []
+    // Creating the notelist list and making it persistent
+     @Persistent("noteList") var noteList: [note] = []
+    // defining the remove function for the slide remove feature
+    func remove(at offsets: IndexSet) {
+        noteList.remove(atOffsets: offsets)
+    }
     var body: some View {
         // Nesting the navigation stack, List for the notes and VStack for the description of the notes
         
@@ -36,12 +40,17 @@ struct NotesMain: View {
                             VStack(alignment: .leading) {
                                 Text(note.noteTitle.wrappedValue)
                                     .font(.title)
+                                    .fontWeight(.medium)
                                 Text(note.noteCreated.wrappedValue.description)
                                     .font(.caption)
                             }
                         }
                     }
+                    .onDelete(perform: remove)
+                    .onMove { from, to in noteList.move(fromOffsets: from, toOffset: to)
+                    }
                 }
+                
             
                 // Creating the navigation title and making it large
                 .navigationTitle("Notes")
@@ -56,16 +65,20 @@ struct NotesMain: View {
                             .tint(.accentColor)
                     }
                 }
-                
+                .toolbar {
+                    EditButton()
+                }
             
             
         }
+        // The sheet for the add note page(It is pretty much a copy of view notes)
         .sheet(isPresented: $Sheet) {
             NoteAdd(
                 name: $noteList[noteList.count-1].noteTitle ,
                 what: $noteList[noteList.count-1 ].noteContent,
                 date: $noteList[noteList.count-1 ].noteCreated,
-                
+                sheet: $Sheet
+                )
                 }
 
         }

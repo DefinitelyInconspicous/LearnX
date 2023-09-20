@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftPersistence
 
 struct ContentView: View {
+    
+    
+    
     var body: some View {
         TabView {
             // I will add the introduction pages here so that ppl will know how to use the app
