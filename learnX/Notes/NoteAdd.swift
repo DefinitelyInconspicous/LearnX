@@ -32,7 +32,12 @@ struct NoteAdd: View {
                     .font(.callout)
             }
                 // The main note text Editor
-            TextEditor(text: $what)
+    
+                TextEditor(text: $what)
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.roundedRectangle(radius: 10))
+                
+        
         // The confirm button
             Button {
                 sheet = false

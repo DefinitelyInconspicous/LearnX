@@ -31,12 +31,13 @@ struct NotesMain: View {
         // Nesting the navigation stack, List for the notes and VStack for the description of the notes
         
         NavigationStack {
-            
+            // Adds the note view to the list for every note in noteList
                 List {
                     ForEach($noteList, id: \.id) { note in
                         NavigationLink {
                             NoteView(name: note.noteTitle, what: note.noteContent , date: note.noteCreated)
                         } label: {
+                            // The Label is the noteTitle and the Date of creation
                             VStack(alignment: .leading) {
                                 Text(note.noteTitle.wrappedValue)
                                     .font(.title)
