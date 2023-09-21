@@ -8,13 +8,34 @@
 import SwiftUI
 
 struct DocumentationMain: View {
+    @State var search: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List{
+                NavigationLink {
+                 slider()
+                } label: {
+                    Text("Note")
+                        .font(.title)
+                        .fontWeight(.medium)
+                }
+                NavigationLink {
+                 NotesMain()
+                } label: {
+                    Text("Slider")
+                        .font(.title)
+                        .fontWeight(.medium)
+                }
+                .navigationTitle("Documentation")
+                .navigationBarTitleDisplayMode(.large)
+                .searchable(text: $search)
+            }
+        }
     }
 }
 
 struct DocumentationMain_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentationMain()
+        DocumentationMain(search: "")
     }
 }
