@@ -21,6 +21,7 @@ struct slider: View {
                     .padding()
                 Text("Implementing Sliders")
                     .font(.largeTitle)
+                    .padding()
                     .fontWeight(.heavy)
                 Text("Slider(value: <BoundVariable>, \n in: <minimum value>...<maximum value>, step: <stepnum>) { \n Text(\"<title>\") \n } minimumValueLabel { \n Text(\"<minimum value> \") \n } maximumValueLabel { \n Text(\"<maximum value>) \n }")
                     .font(.body)

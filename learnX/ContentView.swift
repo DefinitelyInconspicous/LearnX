@@ -11,15 +11,14 @@ import SwiftPersistence
 struct ContentView: View {
     
     var body: some View {
-        TabView {
-            // I will add the introduction pages here so that ppl will know how to use the app
-        }
-        .tabViewStyle(.page)
+        
+//            // I will add the introduction pages here so that ppl will know how to use the app
+        
         
         // This Tabview is for toggling between the notes page and the documentation(and the settings)
         TabView {
             // The notes tab
-            NotesMain()
+            NotesMain(search: "")
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet.clipboard")
@@ -33,6 +32,11 @@ struct ContentView: View {
                         Image(systemName: "newspaper")
                         Text("Documentation")
                     }
+                }
+            SettingsMain()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
                 }
         }
     }

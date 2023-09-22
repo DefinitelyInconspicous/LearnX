@@ -21,14 +21,23 @@ struct NoteView: View {
                 .fontWeight(.heavy)
                 .frame(alignment: .top)
             // Note Title
-            TextField(name, text: $name)
-                .font(.largeTitle)
-                .fontWeight(.medium)
-                .padding(.leading)
+            HStack {
+                Text("Title:")
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .padding(.leading)
+                TextField(name, text: $name)
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .padding(.trailing)
+                    .frame(width: 200)
+                    .border(.black)
+            }
             // When the note was made
             HStack {
                 Text("Date Created: \(date.description)")
                     .font(.callout)
+                    .frame(alignment: .center)
                 Spacer()
             }
             
@@ -37,7 +46,8 @@ struct NoteView: View {
             
             // The main note editor
             TextEditor(text: $what)
-            
+                .border(.blue)
+                .frame(width: 400, height: 650)
             Spacer()
             
         }
