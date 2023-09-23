@@ -6,58 +6,46 @@
 //
 
 import SwiftUI
+import SwiftPersistence
 
 struct SettingsMain: View {
+    @Persistent("currentAppIcon") var currentAppIcon: String = "App Icon"
     var body: some View {
         VStack{
-            Text("Change App Icon")
-                .font(.largeTitle)
-
-            HStack{
-                Button {
-                    UIApplication.shared.setAlternateIconName(nil)
-                } label: {
-                    VStack {
-                        Image("newIcon")
-                            .resizable()
-                            .cornerRadius(20)
-                            .frame(width: 100, height: 100, alignment: .center)
-                        Text("New Icon")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
+            HStack {
+                Text("Change App Icon:")
+                    .font(.headline)
+                    .padding()
+                Picker("app icons", selection: $currentAppIcon) {
+                    @State var appIcons: [String] = ["AppIcon ", "AppIcon 1"]
+                    ForEach(appIcons, id: \.self) { icon in
+                        Text(icon)
+                            .tag(icon)
                     }
                 }
                 .padding()
+                .pickerStyle(.wheel)
                 
-
-                Button {
-                    UIApplication.shared.setAlternateIconName("Old")
-                } label: {
-                    VStack {
-                        Image("oldIcon")
-                            .resizable()
-                            .cornerRadius(20)
-                            .frame(width: 100, height: 100)
-                            
-                        Text("Old Icon")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-
-                    }
-                }
-                .padding()
             }
             Spacer()
         }
+        .onChange(of: currentAppIcon) { newValue in
+            if currentAppIcon == "New Icon" {
+                UIApplication.shared.setAlternateIconName(nil)
+            } else {
+                UIApplication.shared.setAlternateIconName(newValue)
+            }
+    }
         
     }
+        
+       
+}
     
-}
-
-struct SettingsMain_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsMain()
+    struct SettingsMain_Previews: PreviewProvider {
+        static var previews: some View {
+            SettingsMain()
+        }
     }
-}
+    
+

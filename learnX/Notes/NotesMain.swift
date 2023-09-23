@@ -17,12 +17,22 @@ struct note: Identifiable, Codable, Hashable {
 
 }
 struct NotesMain: View {
+    // Filtering search results
+    @State private var searchResults: [note] {
+           if search.isEmpty {
+               return noteList
+           } else {
+               return noteList.filter { $0.noteTitle.lowercased().contains(search.lowercased()) }
+           }
+    }
+
     @State var Sheet: Bool = false
     // Creating the placeholder of note(A default)
     let placeholder = note(noteTitle: "New Note", noteContent: " Content", noteCreated: Date())
     
     // Creating the notelist list and making it persistent
     @Persistent("noteList") var noteList: [note] = []
+    
     // defining the remove function for the slide remove feature
     func remove(at offsets: IndexSet) {
         noteList.remove(atOffsets: offsets)
@@ -34,16 +44,16 @@ struct NotesMain: View {
         NavigationStack {
             // Adds the note view to the list for every note in noteList
             List {
-                ForEach(searchResults, id: \.id) { note in
+                ForEach($searchResults, id: \.self) { note in
                     NavigationLink {
-                        NoteView(name: .constant(note.noteTitle), what: .constant(note.noteContent) , date: .constant(note.noteCreated))
+                        NoteView(name: note.noteTitle, what: note.noteContent , date: note.noteCreated)
                     } label: {
                         // The Label is the noteTitle and the Date of creation
                         VStack(alignment: .leading) {
-                            Text(note.noteTitle)
+                            Text(note.noteTitle.wrappedValue)
                                 .font(.title)
                                 .fontWeight(.medium)
-                            Text("\(note.noteCreated)")
+                            Text("\(note.noteCreated.wrappedValue)")
                                 .font(.caption2)
                         }
                     }
@@ -74,7 +84,9 @@ struct NotesMain: View {
            
             
         }
+        // Search function
         .searchable(text: $search, prompt: "Search for a note!")
+        // The sheet for the add note page(It is pretty much a copy of view notes)
         .sheet(isPresented: $Sheet) {
             NoteAdd(
                 name: $noteList[noteList.count-1].noteTitle ,
@@ -84,16 +96,8 @@ struct NotesMain: View {
             )
         }
    
-            // The sheet for the add note page(It is pretty much a copy of view notes)
             
         }
-     private var searchResults: [note] {
-           if search.isEmpty {
-               return noteList
-           } else {
-               return noteList.filter { $0.noteTitle.lowercased().contains(search.lowercased()) }
-           }
-    }
     struct NotesMain_Previews: PreviewProvider {
         static var previews: some View {
             NotesMain( search: "")
