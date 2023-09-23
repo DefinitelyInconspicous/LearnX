@@ -13,31 +13,42 @@ struct NoteAdd: View {
     @Binding var date: Date
     @Binding var sheet: Bool
     var body: some View {
-        // Creating title text
-        Text("Note Creator")
-            .font(.largeTitle)
-            .fontWeight(.heavy)
-            .frame(maxHeight: .infinity, alignment: .top)
-            .padding()
-        
-        // Text field for the title editing
-        TextField(name, text: $name)
-            .font(.largeTitle)
-            .fontWeight(.medium)
-            .padding()
-            
-        // Text of when the note was created
-                    HStack {
+        VStack {
+            // Heading
+            Text("Note Editor")
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .frame(alignment: .top)
+            // Note Title
+            HStack {
+                Text("Title:")
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .padding(.leading)
+                TextField(name, text: $name)
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .padding(.trailing)
+                    .frame(width: 200)
+                    .border(.black)
+            }
+            // When the note was made
+            HStack {
                 Text("Date Created: \(date.description)")
                     .font(.callout)
+                    .frame(alignment: .center)
+                Spacer()
             }
-                // The main note text Editor
-    
-                TextEditor(text: $what)
-                .buttonStyle(.bordered)
-                .buttonBorderShape(.roundedRectangle(radius: 10))
-                
-        
+            
+            
+            
+            
+            // The main note editor
+            TextEditor(text: $what)
+                .border(.blue)
+                .frame(width: 400, height: 650)
+            Spacer()
+            
         // The confirm button
             Button {
                 sheet = false
@@ -52,7 +63,7 @@ struct NoteAdd: View {
         
     }
     }
-
+}
 
 struct NoteAdd_Previews: PreviewProvider {
     static var previews: some View {
