@@ -8,13 +8,20 @@
 import SwiftUI
 // Creating the documentation struct
 struct documentation: Identifiable {
+//    static func == (lhs: documentation, rhs: documentation) -> Bool {
+//           lhs.id == rhs.id
+//       }
+//       func hash(into hasher: inout Hasher) {
+//           hasher.combine(id)
+//           hasher.combine(docName)
+//       }
+    
     var id = UUID()
     var docView: AnyView
     var docName: String
 }
 struct DocumentationMain: View {
 /*
- mm
  MARK: - README
  
  when adding your documentation, create a new instance in the list below and type this
@@ -27,19 +34,24 @@ struct DocumentationMain: View {
  */
 
     @State var documentationList: [documentation] = [
-    documentation(docView: AnyView(slider()), docName: "Slider"),
-    
+        documentation(docView: AnyView(slider()), docName: "Slider"),
+        documentation(docView: AnyView(ToggleDoc()), docName: "Toggle"),
     
     ]
-    @State var search: String
+    
+    
+    
+    
+    
+    @State var search: String = ""
     var body: some View {
         NavigationStack {
             List{
-                ForEach(documentationList) { doc in
+                ForEach($documentationList) { doc in
                     NavigationLink{
-                        doc.docView
+                        doc.docView.wrappedValue
                     } label: {
-                        Text(doc.docName)
+                        Text(doc.docName.wrappedValue)
                             .font(.title)
                             .fontWeight(.medium)
                     }
@@ -55,6 +67,6 @@ struct DocumentationMain: View {
 
 struct DocumentationMain_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentationMain(search: "")
+        DocumentationMain()
     }
 }

@@ -18,6 +18,7 @@
 		813ABA062ABA888400BCDF39 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA052ABA888400BCDF39 /* NoteView.swift */; };
 		813ABA082ABA8C9C00BCDF39 /* NoteAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA072ABA8C9C00BCDF39 /* NoteAdd.swift */; };
 		813ABA0C2ABC37E000BCDF39 /* slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813ABA0B2ABC37E000BCDF39 /* slider.swift */; };
+		818EFA102AC0F43A00C1EDC6 /* ToggleDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EFA0F2AC0F43A00C1EDC6 /* ToggleDoc.swift */; };
 		81D221A52ABDB35A0084517D /* SettingsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D221A42ABDB35A0084517D /* SettingsMain.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		813ABA052ABA888400BCDF39 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		813ABA072ABA8C9C00BCDF39 /* NoteAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAdd.swift; sourceTree = "<group>"; };
 		813ABA0B2ABC37E000BCDF39 /* slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slider.swift; sourceTree = "<group>"; };
+		818EFA0F2AC0F43A00C1EDC6 /* ToggleDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleDoc.swift; sourceTree = "<group>"; };
 		81D221A42ABDB35A0084517D /* SettingsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 			children = (
 				813ABA002AB9C49000BCDF39 /* DocumentationMain.swift */,
 				813ABA0B2ABC37E000BCDF39 /* slider.swift */,
+				818EFA0F2AC0F43A00C1EDC6 /* ToggleDoc.swift */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				813AB9EC2AB9C14300BCDF39 /* ContentView.swift in Sources */,
 				813AB9F82AB9C1D900BCDF39 /* Intro1.swift in Sources */,
 				813AB9EA2AB9C14300BCDF39 /* learnXApp.swift in Sources */,
+				818EFA102AC0F43A00C1EDC6 /* ToggleDoc.swift in Sources */,
 				813ABA082ABA8C9C00BCDF39 /* NoteAdd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

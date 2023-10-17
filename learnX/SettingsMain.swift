@@ -10,25 +10,33 @@ import SwiftPersistence
 
 struct SettingsMain: View {
     @Persistent("currentAppIcon") var currentAppIcon: String = "App Icon"
+    @Persistent("DarkMode") var darkMode: Bool = true
     var body: some View {
-        VStack{
-            HStack {
-                Text("Change App Icon:")
-                    .font(.headline)
-                    .padding()
-                Picker("app icons", selection: $currentAppIcon) {
-                    @State var appIcons: [String] = ["AppIcon ", "AppIcon 1"]
-                    ForEach(appIcons, id: \.self) { icon in
-                        Text(icon)
-                            .tag(icon)
+        NavigationStack {
+            VStack{
+                HStack {
+                    Text("Change App Icon:")
+                        .font(.headline)
+                        .padding()
+                    Picker("app icons", selection: $currentAppIcon) {
+                        @State var appIcons: [String] = ["AppIcon ", "AppIcon 1"]
+                        ForEach(appIcons, id: \.self) { icon in
+                            Text(icon)
+                                .tag(icon)
+                        }
                     }
+                    .padding()
+                    .pickerStyle(.wheel)
+                    
                 }
-                .padding()
-                .pickerStyle(.wheel)
+                Spacer()
+                
                 
             }
-            Spacer()
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.large)
         }
+       
         .onChange(of: currentAppIcon) { newValue in
             if currentAppIcon == "New Icon" {
                 UIApplication.shared.setAlternateIconName(nil)
@@ -36,11 +44,11 @@ struct SettingsMain: View {
                 UIApplication.shared.setAlternateIconName(newValue)
             }
     }
-        
     }
         
        
 }
+
     
     struct SettingsMain_Previews: PreviewProvider {
         static var previews: some View {
